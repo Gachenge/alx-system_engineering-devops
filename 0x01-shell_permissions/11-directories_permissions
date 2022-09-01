@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -R+X 777 .
+chmod -R a+rX,g-x,o-x .
