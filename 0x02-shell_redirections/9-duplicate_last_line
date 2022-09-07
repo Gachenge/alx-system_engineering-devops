@@ -1,2 +1,2 @@
 #!/bin/bash
-paste iacta | tail -n 1 
+paste iacta | tail -n 1 >>iacta
