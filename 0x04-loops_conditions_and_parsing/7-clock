@@ -2,6 +2,7 @@
 #display time for 12 hours and 59 minutes
 i=0
 HR=0
+echo "Hour: ${HR}"
 while [ $i -lt 61 ]
 do
 	((i++))
