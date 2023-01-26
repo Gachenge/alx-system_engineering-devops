@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#script to list all files in current directory
+for i in $(ls)
+do
+	echo $i
+done
