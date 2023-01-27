@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#this is looking a lot like a virus
+echo "$$" > /var/run/myscript.pid
+end(){
+	rm /var/run/myscript.pid
+	exit
+}
+while 'true'
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I hate the kill command" && end' SIGTERM
+	trap 'echo "Y U no love me ?!"' SIGINT
+	trap 'end' SIGQUIT
+done
