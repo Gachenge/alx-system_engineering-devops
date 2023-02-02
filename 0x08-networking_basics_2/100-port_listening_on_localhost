@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#listen to a port on localhost
+
+netcat -l localhost 98
