@@ -4,6 +4,6 @@ owner => 'victor',
 group => 'victor',
 mode => '0600',
 content => "Host ubuntu\n\
-            \tIdentityFile ~/.ssh/school\n\
-            \tPasswordAuthentication no\n",
+            \tPasswordAuthentication no\n\
+            \tIdentifyFile ~/.ssh/school\n",
 }
