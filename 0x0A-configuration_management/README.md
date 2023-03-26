@@ -1,0 +1,1 @@
+Getting started with puppet and server configurations

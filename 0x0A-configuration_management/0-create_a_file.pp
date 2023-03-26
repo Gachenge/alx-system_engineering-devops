@@ -1,4 +1,5 @@
 # create a file, give permissions
+
 file { '/tmp/school':
   ensure  => 'file',
   mode    => '0744',
