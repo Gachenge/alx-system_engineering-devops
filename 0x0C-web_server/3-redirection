@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#redirect to another page
+
+apt-get update
+apt-get install -y nginx
+
+cat > /etc/nginx/sites-available/redirect_me.conf << EOF
+server {
+    listen  80;
+    listen  [::]:80 default_server;
+    root    /etc/nginx/html;
+    index   index.html index.htm;
+
+    location /redirect_me {
+        return 301 http://alx.com/;
+    }
+}
+EOF
+ln -s /etc/nginx/sites-available/redirect_me.conf /etc/nginx/sites-enabled/
+
+nginx -t && systemctl reload nginx
