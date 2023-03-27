@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
-#error 404 page not found
+#install nginx on the server not found
 
 apt-get update
-apt-get install -y nginx
-
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-
+apt-get -y install nginx
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+touch /etc/nginx/html/custom.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/custom.html
 printf %s "server {
-    listen  80;
+    listen  80 default_server;
     listen  [::]:80 default_server;
     root    /etc/nginx/html;
-    index   index.html index.htm;
+    index index.html index.htm;
 
     location /redirect_me {
         return 301 http://alx.com/;
-        }
-    error_page 404 /404.html;
-    location /404 {
+    }
+    error_page 404 /custom.html;
+    location = /custom.html {
         root /etc/nginx/html;
         internal;
     }
-}" > etc/nginx/sites-available/default
-
+}" > /etc/nginx/sites-available/default
 service nginx restart
