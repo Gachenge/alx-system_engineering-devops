@@ -5,6 +5,11 @@ apt-get update
 apt-get -y install nginx
 mkdir /etc/nginx/html
 touch /etc/nginx/html/index.html
-ufw allow 'Nginx Full'
 echo "Hello World!" > /etc/nginx/html/index.html
-service nginx start
+printf %s "server {
+    listen  80;
+    listen  [::]:80 default_server;
+    root    /etc/nginx/html;
+}"
+> /etc/nginx/sites-available/default
+service nginx restart
