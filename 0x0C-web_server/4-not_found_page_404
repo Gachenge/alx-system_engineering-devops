@@ -18,7 +18,7 @@ printf %s "server {
         return 301 http://alx.com/;
     }
     error_page 404 /custom.html;
-    location = /custom.html {
+    location /custom.html {
         root /etc/nginx/html;
         internal;
     }
