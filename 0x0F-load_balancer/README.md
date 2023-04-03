@@ -1,0 +1,1 @@
+Implement a load balancer and another server for redundancy

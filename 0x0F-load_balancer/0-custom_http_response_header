@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#install nginx on the server not found
+
+apt-get update
+apt-get install -y nginx
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+touch /etc/nginx/html/custom.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/custom.html
+printf %s "server {
+    listen  80 default_server;
+    listen  [::]:80 default_server;
+    add_header X-Served-By $HOSTNAME;
+    root    /etc/nginx/html;
+    index   index.html index.htm;
+
+    location /redirect_me {
+        return 301 http://alx.com/;
+    }
+    error_page 404 /custom.html;
+    location = /custom {
+        root /etc/nginx/html;
+        internal;
+    }
+}" > /etc/nginx/sites-available/default
+sudo service nginx restart
