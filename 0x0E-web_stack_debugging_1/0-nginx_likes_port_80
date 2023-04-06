@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# create a symbolic link inside sites-enabled dir replace old
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
