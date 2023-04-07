@@ -1,0 +1,2 @@
+HTTPS ssl
+DNS bash
