@@ -5,7 +5,7 @@ global
         stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
         stats timeout 30s
         user haproxy
-i       group haproxy
+        group haproxy
         daemon
         maxconn 2048
         tune.ssl.default-dh-param 2048
@@ -38,12 +38,12 @@ defaults
         option http-server-close
 
 frontend www-http
-        bind 54.85.34.32:80
+        bind *:80
         reqadd X-Forwarded-Proto:\ http
         default_backend www-backend
 
 frontend www-https
-   bind 54.85.34.32:443 ssl crt /etc/haproxy/certs/example.com.pem
+   bind *:443 ssl crt /etc/ssl/gachenge.tech/gachenge.tech.pem
    reqadd X-Forwarded-Proto:\ https
    acl letsencrypt-acl path_beg /.well-known/acme-challenge/
    use_backend letsencrypt-backend if letsencrypt-acl
@@ -55,4 +55,4 @@ backend www-backend
    server 119623-web-02 100.25.13.63:80 check
 
 backend letsencrypt-backend
-   server letsencrypt 127.0.0.1:54321
+   server letsencrypt 127.0.0.1:8888
