@@ -2,3 +2,4 @@
 # create a symbolic link inside sites-enabled dir replace old
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
+sudo killall nginx
