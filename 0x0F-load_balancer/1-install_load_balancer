@@ -12,8 +12,8 @@ frontend  def-frontend
         default_backend def-backend
 backend def-backend
         balance roundrobin
-        server 119623-web-01 52.86.27.65:80 check
-        server 119623-web-02 100.25.13.63:80 check
+        server 119623-web-01 54.87.226.76:80 check
+        server 119623-web-02 52.3.249.22:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
