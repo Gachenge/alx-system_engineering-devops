@@ -7,8 +7,6 @@ global
         user haproxy
         group haproxy
         daemon
-        maxconn 2048
-        tune.ssl.default-dh-param 2048
 
         # Default SSL material locations
         ca-base /etc/ssl/certs
@@ -34,25 +32,18 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-        option forwardfor
-        option http-server-close
 
-frontend www-http
+frontend  def-frontend
         bind *:80
-        reqadd X-Forwarded-Proto:\ http
-        default_backend www-backend
+        mode http
+        default_backend def-backend
 
-frontend www-https
-   bind *:443 ssl crt /etc/ssl/gachenge.tech/gachenge.tech.pem
-   reqadd X-Forwarded-Proto:\ https
-   acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-   use_backend letsencrypt-backend if letsencrypt-acl
-   default_backend www-backend
+frontend  def-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.gachenge.tech.pem
+        default_backend def-backend
 
-backend www-backend
-   redirect scheme https if !{ ssl_fc }
-   server 119623-web-01 52.86.27.65:80 check
-   server 119623-web-02 100.25.13.63:80 check
-
-backend letsencrypt-backend
-   server letsencrypt 127.0.0.1:8888
+backend def-backend
+        balance roundrobin
+        redirect scheme https if !{ ssl_fc }
+        server 119623-web-01 54.87.226.76:80 check
+        server 119623-web-02 52.3.249.22:80 check
