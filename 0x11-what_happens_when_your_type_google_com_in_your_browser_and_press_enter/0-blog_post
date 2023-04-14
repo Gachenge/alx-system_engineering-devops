@@ -1,0 +1,13 @@
+What happens when you type google.com in your browser and press Enter
+
+People are more comfortable with using words over numbers. Web pages have addresses but it is not humanly possible to remember all the addresses of all websites that we visit each day. To help us bridge the gap,  we have DNS severs, such as CiscoOpenDNS which store all records of ip addresses matched to their respective domain names. So when a user enters a domain name into their browser, the client sends a DNS query to a DNS server, which returns its respective IP address, and the browser reroutes traffic to the address.
+
+IP or Internet Protocol is responsible for routing traffic to the requested address. This protocol ensures traffic goes to the destined addressee. It maintains addresses on each packet to ensure routers send packets to the right place. IP works hand in hand with TCP, Transmission Control Protocol. TCP ensures there is connectivity between the sender and receiver, It guarantees data integrity. Once a connection to google is established, TCP/IP work together to ensure the connection stays active.
+
+For security reasons, it is important to maintain a firewall. This filters data sent through your network, ensuring threat actors are not allowed into your network. A network without a firewall is prone to multiple attacks. A firewall can be software based or hardware. Its job is to keep a watchful eye on network traffic as it crosses over the untrusted to trusted network.
+
+To keep criminals from reading or mopdifying information transfered between two sites, it is important to maintain an SSL certificate. The certificate is responsible for encryption and decryption of data. A website that implements such a certificate is marked by a padlock in the address bar and its address begins with HTTPS: . Even if data to and from such a website is intercepted, it is usually encrypted.
+
+When building a web application, it is important to have multiple web servers, for redundancy. This ensures your application will have little to no downtime in case one of the servers experiences trouble. implement a load balancer too to ensure that traffic is sent equally to all your web servers. This ensures that neither web server is overworked. A web server accepts a request for data and sends the relevant document in return. We also have an application server which is designed to install, operate and host applications and associated services for end users.
+
+Data is stored in a database for easy retrieval. Google indexing is a system where information is stored in a large database. When a user types in a search, results relevant to the query are returned.
