@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-# script that return information, using employee id
-#get his/her TODO list progres"""
+
+"""script that return information, using employee id
+get his/her TODO list progres"""
 
 from sys import argv
 import requests
