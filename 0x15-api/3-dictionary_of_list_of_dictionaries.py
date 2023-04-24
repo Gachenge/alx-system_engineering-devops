@@ -3,8 +3,8 @@
 export all tasks from all employees"""
 
 from sys import argv
-import requests
 import json
+import requests
 
 users = requests.get("https://jsonplaceholder.typicode.com/users").json()
 tasks = requests.get("https://jsonplaceholder.typicode.com/todos").json()
