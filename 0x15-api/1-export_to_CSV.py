@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-export files from an API
+"""export files from an API
 export formated data into CSV
 """
 from sys import argv

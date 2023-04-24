@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""extend 0-gather to export the data to
-JSON format. record all tasks owned by this employee
+"""extend 0-gather to export the data to JSON 
+format record all tasks owned by this employee
 """
 from sys import argv
 import requests

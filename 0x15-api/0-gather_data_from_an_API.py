@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-script that return information, using employee id
+"""script that return information, using employee id
 get his/her TODO list progress
 """
-
 import requests
 from sys import argv
 
