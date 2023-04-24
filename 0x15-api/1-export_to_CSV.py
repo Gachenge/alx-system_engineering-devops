@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""export files from an API format it by user id
-export formated data into CSV"""
+"""
+export files from an API format it by user id
+export formated data into CSV
+"""
 
 from sys import argv
 import csv
