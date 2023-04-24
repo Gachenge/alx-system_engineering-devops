@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""export files from an API format it by user id export formated data into CSV"""
+"""export files from an API format it by user id
+export formated data into CSV"""
 
 from sys import argv
-import requests
 import csv
+import requests
 
 user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                     .format(argv[1])).json()

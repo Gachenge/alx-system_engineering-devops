@@ -2,8 +2,8 @@
 """extend 0-gather to export the data to JSON format record all tasks owned by this employee"""
 
 from sys import argv
-import requests
 import json
+import requests
 
 user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                     .format(argv[1])).json()

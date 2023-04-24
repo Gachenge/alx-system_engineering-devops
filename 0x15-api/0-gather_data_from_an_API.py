@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""script that return information, using employee id get his/her TODO list progres"""
+"""script that return information, using employee id
+get his/her TODO list progres"""
 
-import requests
 from sys import argv
+import requests
 
 user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                     .format(argv[1])).json()
