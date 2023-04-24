@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""extend 0-gather data to export data in json
-export all tasks from all employees"""
+"""export files from an API format it by user id
+export formated data into CSV"""
 
 from sys import argv
 import requests
