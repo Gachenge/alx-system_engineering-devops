@@ -16,7 +16,7 @@ user = {user.get("id"): [{"username": user.get("username"), "task":
         ("https://jsonplaceholder.typicode.com/todos",
             params={"userId": user.get("id")}).json()]
         for user in users}
-usson = json.dumps(user)
+usson = json.dumps(user, sort_keys=True)
 
 with open('todo_all_employees.json', 'w') as f:
     f.write(usson)
