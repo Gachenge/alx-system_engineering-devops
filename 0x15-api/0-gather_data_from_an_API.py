@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""script that return information, using employee id
-get his/her TODO list progress"""
+"""extend 0-gather data to export data in json
+export all tasks from all employees"""
 
 import requests
 from sys import argv
