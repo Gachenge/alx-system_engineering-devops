@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-"""script that return information, using employee id dshrthrthrgbdfbgmdfk dfbcv vc vn b cgb
-get his/her TODO list progress gnhfghmldfnvdafj;bgerwgndfkllvn dfmgner;lkgnkergndfv 
-dfgfblkndfklnnldf'nsc sdfu wefhw[rwen we[fohrewf ew[fi
-regerg
-
-"""
+"""script that return information, using employee id
+get his/her TODO list progres"""
 
 import requests
 from sys import argv
