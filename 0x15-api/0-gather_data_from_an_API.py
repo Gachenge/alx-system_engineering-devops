@@ -5,6 +5,7 @@ get his/her TODO list progres"""
 import requests
 from sys import argv
 
+"""other documentation format the data properly"""
 user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                     .format(argv[1])).json()
 tasks = requests.get("https://jsonplaceholder.typicode.com/todos",
