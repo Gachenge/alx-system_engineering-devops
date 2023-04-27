@@ -3,9 +3,8 @@
 script that return information, using employee id
 get his/her TODO list progres
 """
-
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == "__main__":
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
