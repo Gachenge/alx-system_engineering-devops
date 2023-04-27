@@ -7,17 +7,18 @@ get his/her TODO list progres
 from sys import argv
 import requests
 
-user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                    .format(argv[1])).json()
-tasks = requests.get("https://jsonplaceholder.typicode.com/todos",
-                     params={"userId": argv[1]}).json()
+if __name__ == "__main__":
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(argv[1])).json()
+    tasks = requests.get("https://jsonplaceholder.typicode.com/todos",
+                         params={"userId": argv[1]}).json()
 
-tak = []
-for task in tasks:
-    if task.get("completed") is True:
-        tak.append(task.get("title"))
+    tak = []
+    for task in tasks:
+        if task.get("completed") is True:
+            tak.append(task.get("title"))
 
-print("Employee {} is done with tasks({}/{}):"
-      .format(user.get("name"), len(tak), len(tasks)))
-for ta in tak:
-    print("\t", ta)
+    print("Employee {} is done with tasks({}/{}):"
+          .format(user.get("name"), len(tak), len(tasks)))
+    for ta in tak:
+        print("\t", ta)
