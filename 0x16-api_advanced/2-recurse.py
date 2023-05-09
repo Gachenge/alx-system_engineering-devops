@@ -10,9 +10,12 @@ def recurse(subreddit, hot_list=[], after=""):
                             headers={"User-Agent": "myself"},
                             allow_redirects=False,
                             params={"limit": 100, 'after': after})
-    data = response.json().get("data")
-    hot_list += ([(x.get('data').get('title')) for x in data.get("children")])
-    after = data.get("after")
+    if response.status_code == 200:
+        data = response.json().get("data")
+        hot_list += ([(x.get('data').get('title')) for x in data.get("children")])
+        after = data.get("after")
+    else:
+        return (None)
 
     if (after is not None):
         return recurse(subreddit, hot_list, after)

@@ -9,5 +9,9 @@ def top_ten(subreddit):
                             .format(subreddit),
                             headers={"User-Agent": "myself"},
                             allow_redirects=False, params={"limit": 10})
-    data = response.json().get("data")
-    [print(x.get("data").get('title')) for x in data.get('children')]
+    if response.status_code == 200:
+        data = response.json().get("data")
+        [print(x.get("data").get('title')) for x in data.get('children')]
+
+    else:
+        print("None")
