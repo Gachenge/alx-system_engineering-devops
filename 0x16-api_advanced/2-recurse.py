@@ -12,7 +12,8 @@ def recurse(subreddit, hot_list=[], after=""):
                             params={"limit": 100, 'after': after})
     if response.status_code == 200:
         data = response.json().get("data")
-        hot_list += ([(x.get('data').get('title')) for x in data.get("children")])
+        hot_list += ([(x.get('data').get('title'))
+                      for x in data.get("children")])
         after = data.get("after")
     else:
         return (None)
