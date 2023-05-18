@@ -1,0 +1,24 @@
+server {
+    listen  80 default_server;
+    listen  [::]:80 default_server;
+    add_header X-Served-By 119623-web-01;
+    server_name 54.87.226.76;
+
+    location /redirect_me {
+        return 301 http://alx.com/;
+    }
+
+    error_page 404 /custom.html;
+    location = /custom {
+        root /etc/nginx/htmli;
+        internal;
+    }
+
+    location = /airbnb-onepage/ {
+        proxy_pass http://localhost:5000/airbnb-onepage/;
+    }
+
+    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    }
+}
